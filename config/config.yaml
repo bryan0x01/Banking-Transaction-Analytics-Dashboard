@@ -1,0 +1,42 @@
+random_seed: 42
+
+record_counts:
+  customers: 1500
+  accounts: 2400
+  merchants: 300
+  transactions: 75000
+
+date_range:
+  start_date: "2024-01-01"
+  end_date: "2025-12-31"
+
+paths:
+  raw_data_dir: "data/raw"
+  processed_data_dir: "data/processed"
+  output_dir: "data/output"
+  powerbi_export_dir: "data/output/powerbi"
+  database_path: "database/banking_analytics.db"
+  excel_output_path: "data/output/banking_transaction_analysis.xlsx"
+  log_path: "data/output/pipeline.log"
+
+thresholds:
+  high_value_transaction: 5000
+  rapid_transaction_minutes: 10
+  decline_rate_warning: 0.08
+  international_transaction_warning: 0.05
+  negative_balance_warning: -500
+  unusual_hour_start: 0
+  unusual_hour_end: 5
+
+anomaly_scoring_weights:
+  high_value_transaction: 2
+  spending_deviation: 3
+  rapid_repeat_transaction: 2
+  geographic_inconsistency: 3
+  unusual_international_activity: 2
+  unusual_transaction_time: 1
+  repeated_declines: 2
+  balance_issue: 2
+
+supported_currency:
+  - USD
